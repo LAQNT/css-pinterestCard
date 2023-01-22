@@ -1,0 +1,122 @@
+* {
+  box-sizing: border-box;
+  padding:0;
+  margin: 0;
+} 
+
+body {
+  width:100vw;
+  height: 100vh;
+  max-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 100px;
+}
+
+.card-container {
+  width: 300px;
+  height: 300px;
+  position:relative;
+  margin:auto;
+  border-radius: 15px;
+  overflow:hidden ;
+  box-shadow: 4px 4px 8px rgb(0 0 0 / 0.5);
+}
+
+.card-container_img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card-container::before {
+  content: " ";
+  background-color: black;
+  opacity: 35%;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  transition-duration: .001s;
+  transform: translateY(-100%);
+}
+
+.card-container:hover::before{
+  transform: translateY(0);
+}
+
+.card-container_icons-bottom {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 15px;
+}
+
+
+.card-container_icons-bottom div {
+  display: inline-block;
+  z-index: 2;
+  bottom: 0;
+  background-color: rgb(255, 255, 255, 70%);
+  padding: 10px 13px;
+  border-radius: 50%;
+  transition-duration: .1s;
+  transform: translateY(150%);
+  cursor: pointer;
+}
+
+.card-container_icons-bottom div:first-child {
+  border-radius: 30px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-container_icons-bottom div:first-child span{
+  margin-left: 5px;
+}
+
+.card-container:hover .card-container_icons-bottom div {
+  transform: translateY(0);
+}
+
+span {
+  font-size: 1rem;
+}
+
+
+.save-button {
+  position:absolute;
+  z-index: 2;
+  right: 20px;
+  top: 20px;
+  font-size: .8rem;
+  background-color: red;
+  color: rgb(240, 240, 240);
+  border-radius: 30px;
+  padding: 7px 18px;
+  transform: translateY(-170%);
+  transition: .1s;
+  cursor: pointer;
+}
+
+.card-container:hover .save-button {
+  transform: translateY(0);  
+}
+
+
+.save-button:hover {
+  background-color: rgb(248, 63, 63);
+}
+
+.card-container_icons-bottom div:hover {
+  opacity: 80%;
+}
